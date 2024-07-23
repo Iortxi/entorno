@@ -7,9 +7,11 @@ fi
 
 apt install -y spectrwm
 
-cp -r Hack /usr/share/fonts/
+mkdir -p /home/iortxi/.fonts/
+cp -r fuente/* /home/iortxi/.fonts/
 
-mkdir -p /home/$USER/.config/spectrwm
-cp spectrwm/* /home/$USER/.config/spectrwm
+mkdir -p /home/iortxi/.config/spectrwm
+cp spectrwm/* /home/iortxi/.config/spectrwm
+
 cp spectrwm.conf /etc/
 
