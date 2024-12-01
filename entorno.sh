@@ -34,6 +34,7 @@ sudo mv obsidian /usr/bin
 
 # Shell (bash) y prompt
 sudo chsh -s /usr/bin/bash "$USER"
+sudo chsh -s /bin/bash root
 pip install powerline-shell
 sudo pip install powerline-shell
 cp shell/.bashrc ~
