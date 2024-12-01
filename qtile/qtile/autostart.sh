@@ -8,3 +8,6 @@ volumeicon &
 
 # Teclado en espagnol
 setxkbmap -layout es,es -model latin1
+
+# Compositor de imagenes
+picom &

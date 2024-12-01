@@ -4,8 +4,9 @@
 
 echo -n "No IP" > ~/.config/spectrwm/ipBD
 echo -n "No target" > ~/.config/spectrwm/objetivoBD
-feh --bg-scale ~/Wallpapers/Vasco.jpg &
+feh --bg-scale ~/Wallpapers/Vasco.jpg
 setxkbmap 'es,es' -model latin1
+picom &
 
 trayer                 \
     --monitor primary  \
