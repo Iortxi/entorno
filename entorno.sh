@@ -50,6 +50,7 @@ chmod +x spectrwm/spectrwm/attack.sh spectrwm/spectrwm/target.sh spectrwm/spectr
 spectrwm/spectrwm/baraction.sh
 cp -r spectrwm/spectrwm/* ~/.config/spectrwm
 sudo cp spectrwm/spectrwm.conf /etc/
+chmod +x spectrwm/spectrwm/*.sh
 
 # Qtile
 pip install qtile
@@ -59,6 +60,7 @@ chmod +x qtile/qtile/autostart.sh
 cp -r qtile/qtile/* ~/.config/qtile
 sudo cp qtile/qtile.desktop /usr/share/xsessions
 sudo ln -s /home/"$USER"/.local/bin/qtile /usr/bin/qtile
+chmod +x qtile/qtile/*.sh
 
 # Fuentes - UbuntuMono Nerd Font ; Hack Nerd Font
 mkdir -p ~/.local/share/fonts
