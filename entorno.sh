@@ -79,3 +79,9 @@ mkdir ~/Wallpapers
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 rm -f google-chrome-stable_current_amd64.deb
+
+# Visual Studio Code
+wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
+mv 'download?build=stable&os=linux-deb-x64' 'vscode.deb'
+sudo dpkg -i vscode.deb
+rm -f vscode.deb
