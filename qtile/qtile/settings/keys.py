@@ -54,10 +54,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Window Nav
-    #([mod, "shift"], "m", lazy.spawn("rofi -show")),
+    ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "Space", lazy.spawn("firefox")),
+    ([mod], "Space", lazy.spawn("google-chrome")),
 
     # File Explorer
     # Probar este o Thunar
@@ -66,13 +66,18 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Terminal
     ([mod], "Return", lazy.spawn("kitty")),
 
-    # Redshift
-    #([mod], "r", lazy.spawn("redshift -O 2400")),
-    #([mod, "shift"], "r", lazy.spawn("redshift -x")),
+    # Obsidian
+    ([mod], "o", lazy.spawn("obsidian")),
 
-    # Screenshot
-    #([mod], "s", lazy.spawn("scrot 'screenshot_%Y-%m-%d-%T_$wx$h.png' -e 'mkdir -p ~/images/screenshots/ | mv $f ~/images/screenshots/'")),
-    #([mod, "shift"], "s", lazy.spawn("scrot -s")),
+    # Burpsuite
+    ([mod], "b", lazy.spawn("burpsuite")),
+
+    # Flameshot
+    ([mod], "s", lazy.spawn("flameshot gui")),
+
+    # Flameshot kill
+    # Opcion de agnadir a ~/.config/qtile/scripts o algo asi
+    ([mod, "shift"], "s", lazy.spawn("~/.config/spectrwm/kill_flameshot.sh")),
 
     # ------------ Hardware Configs ------------
 
@@ -89,6 +94,6 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     )),
 
     # Brightness
-    #([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
-    #([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]]
