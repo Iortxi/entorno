@@ -4,7 +4,7 @@
 
 echo -n "No IP" > ~/.config/spectrwm/ipBD
 echo -n "No target" > ~/.config/spectrwm/objetivoBD
-feh --bg-scale ~/Wallpapers/nvidia_loko.jpg
+feh --bg-scale ~/wallpapers/nvidia_loko.jpg
 setxkbmap 'es,es' -model latin1
 picom &
 

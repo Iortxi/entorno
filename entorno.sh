@@ -45,19 +45,17 @@ cp shell/config.json ~/.config/powerline-shell
 sudo ln -s /home/"$USER"/.local/bin/powerline-shell /usr/bin/powerline-shell
 
 # Spectrwm
-mkdir -p ~/.config/spectrwm
 chmod +x spectrwm/spectrwm/attack.sh spectrwm/spectrwm/target.sh spectrwm/spectrwm/autostart.sh \
 spectrwm/spectrwm/baraction.sh
-cp -r spectrwm/spectrwm/* ~/.config/spectrwm
+cp -r spectrwm/spectrwm/ ~/.config/
 sudo cp spectrwm/spectrwm.conf /etc/
 chmod +x spectrwm/spectrwm/*.sh
 
 # Qtile
 pip install qtile
 sudo pip install qtile
-mkdir -p ~/.config/qtile
 chmod +x qtile/qtile/autostart.sh
-cp -r qtile/qtile/* ~/.config/qtile
+cp -r qtile/qtile/ ~/.config/
 sudo cp qtile/qtile.desktop /usr/share/xsessions
 sudo ln -s /home/"$USER"/.local/bin/qtile /usr/bin/qtile
 chmod +x qtile/qtile/*.sh
@@ -73,7 +71,7 @@ sudo ln -s /home/"$USER"/.local/kitty.app/bin/kitten /usr/bin/kitten
 cp -r kitty ~/.config
 
 # Wallpapers
-mv Wallpapers ~
+mv wallpapers ~
 
 # Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

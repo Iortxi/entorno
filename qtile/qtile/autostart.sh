@@ -13,4 +13,4 @@ setxkbmap -layout es,es -model latin1
 picom &
 
 # Fondo de pantalla
-feh --bg-scale ~/Wallpapers/nvidia_loko.jpg
+feh --bg-scale ~/wallpapers/nvidia_loko.jpg
