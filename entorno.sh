@@ -45,8 +45,7 @@ cp shell/config.json ~/.config/powerline-shell
 sudo ln -s /home/"$USER"/.local/bin/powerline-shell /usr/bin/powerline-shell
 
 # Spectrwm
-chmod +x spectrwm/spectrwm/attack.sh spectrwm/spectrwm/target.sh spectrwm/spectrwm/autostart.sh \
-spectrwm/spectrwm/baraction.sh
+#chmod +x spectrwm/spectrwm/attack.sh spectrwm/spectrwm/target.sh spectrwm/spectrwm/autostart.sh spectrwm/spectrwm/baraction.sh
 cp -r spectrwm/spectrwm/ ~/.config/
 sudo cp spectrwm/spectrwm.conf /etc/
 chmod +x spectrwm/spectrwm/*.sh
@@ -54,7 +53,7 @@ chmod +x spectrwm/spectrwm/*.sh
 # Qtile
 pip install qtile
 sudo pip install qtile
-chmod +x qtile/qtile/autostart.sh
+#chmod +x qtile/qtile/autostart.sh
 cp -r qtile/qtile/ ~/.config/
 sudo cp qtile/qtile.desktop /usr/share/xsessions
 sudo ln -s /home/"$USER"/.local/bin/qtile /usr/bin/qtile
