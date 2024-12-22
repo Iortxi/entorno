@@ -17,7 +17,7 @@ sudo apt update
 # Instalacion de paquetes necesarios
 sudo apt install -y spectrwm pamixer bat lsd console-data \
 xserver-xorg xinit libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi \
-feh rofi brightnessctl cbatticon volumeicon-alsa flameshot picom neofetch htop
+feh rofi brightnessctl cbatticon volumeicon-alsa flameshot picom neofetch htop micro
 
 # Teclado en espagnol
 sudo setxkbmap -layout 'es,es' -model latin1
@@ -45,7 +45,6 @@ cp shell/config.json ~/.config/powerline-shell
 sudo ln -s /home/"$USER"/.local/bin/powerline-shell /usr/bin/powerline-shell
 
 # Spectrwm
-#chmod +x spectrwm/spectrwm/attack.sh spectrwm/spectrwm/target.sh spectrwm/spectrwm/autostart.sh spectrwm/spectrwm/baraction.sh
 cp -r spectrwm/spectrwm/ ~/.config/
 sudo cp spectrwm/spectrwm.conf /etc/
 chmod +x spectrwm/spectrwm/*.sh
@@ -53,11 +52,9 @@ chmod +x spectrwm/spectrwm/*.sh
 # Qtile
 pip install qtile
 sudo pip install qtile
-#chmod +x qtile/qtile/autostart.sh
 cp -r qtile/qtile/ ~/.config/
 sudo cp qtile/qtile.desktop /usr/share/xsessions
 sudo ln -s /home/"$USER"/.local/bin/qtile /usr/bin/qtile
-chmod +x qtile/qtile/*.sh
 
 # Fuentes - UbuntuMono Nerd Font ; Hack Nerd Font
 mkdir -p ~/.local/share/fonts
@@ -70,7 +67,7 @@ sudo ln -s /home/"$USER"/.local/kitty.app/bin/kitten /usr/bin/kitten
 cp -r kitty ~/.config
 
 # Wallpapers
-mv wallpapers ~
+cp -r wallpapers ~
 
 # Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
