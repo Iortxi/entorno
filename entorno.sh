@@ -35,8 +35,8 @@ sudo mv obsidian /usr/bin
 # Shell (bash) y prompt
 sudo chsh -s /usr/bin/bash "$USER"
 sudo chsh -s /bin/bash root
-pip install powerline-shell
-sudo pip install powerline-shell
+pip install powerline-shell --break-system-packages
+sudo pip install powerline-shell --break-system-packages
 cp shell/.bashrc ~
 sudo cp /root/.bashrc /root/.bashrc_backup
 sudo rm -f /root/.bashrc
@@ -45,15 +45,12 @@ cp shell/config.json ~/.config/powerline-shell
 sudo ln -s /home/"$USER"/.local/bin/powerline-shell /usr/bin/powerline-shell
 
 # Spectrwm
-cp -r spectrwm/spectrwm/ ~/.config/
-sudo cp spectrwm/spectrwm.conf /etc/
-chmod +x spectrwm/spectrwm/*.sh
+sudo cp configs/spectrwm.conf /etc/
 
 # Qtile
-pip install qtile
-sudo pip install qtile
-cp -r qtile/qtile/ ~/.config/
-sudo cp qtile/qtile.desktop /usr/share/xsessions
+pip install qtile --break-system-packages
+sudo pip install qtile --break-system-packages
+sudo cp configs/qtile.desktop /usr/share/xsessions
 sudo ln -s /home/"$USER"/.local/bin/qtile /usr/bin/qtile
 
 # Fuentes - UbuntuMono Nerd Font ; Hack Nerd Font
@@ -64,7 +61,6 @@ cp fuente/* ~/.local/share/fonts
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 sudo ln -s /home/"$USER"/.local/kitty.app/bin/kitty /usr/bin/kitty
 sudo ln -s /home/"$USER"/.local/kitty.app/bin/kitten /usr/bin/kitten
-cp -r kitty ~/.config
 
 # Wallpapers
 cp -r wallpapers ~
@@ -79,3 +75,6 @@ wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
 mv 'download?build=stable&os=linux-deb-x64' 'vscode.deb'
 sudo dpkg -i vscode.deb
 rm -f vscode.deb
+
+# Directorio .config (Qtile, Spectrwm, Kitty)
+cp -r .config/* ~/.config
