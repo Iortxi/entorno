@@ -17,7 +17,7 @@ sudo apt update
 # Instalacion de paquetes necesarios
 sudo apt install -y spectrwm pamixer bat lsd console-data \
 xserver-xorg xinit libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi \
-feh rofi brightnessctl cbatticon volumeicon-alsa flameshot picom neofetch htop micro
+feh rofi brightnessctl cbatticon volumeicon-alsa flameshot picom neofetch htop micro dolphin
 
 # Teclado en espagnol
 sudo setxkbmap -layout 'es,es' -model latin1
