@@ -4,8 +4,8 @@
 
 alias ls='lsd'
 alias cat='batcat'
-alias vi='nvim'
-alias vim='nvim'
+alias vi='micro'
+alias vin='/usr/bin/vi'
 alias catn='/usr/bin/cat'
 alias l='ls'
 alias ll='ls -l'
