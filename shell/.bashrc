@@ -1,3 +1,4 @@
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -10,14 +11,17 @@ alias l='ls'
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -lA'
-alias attack='/home/iortxi/.config/spectrwm/attack.sh'
-alias target='/home/iortxi/.config/spectrwm/target.sh'
+alias attack='~/.config/spectrwm/attack.sh'
+alias target='~/.config/spectrwm/target.sh'
 alias rm='rm -rf'
 alias suspend='sudo systemctl suspend'
 alias apagar='shutdown now'
 alias internet='timeout 1 ping -c 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
 
-export PYTHONPATH=$(find ~/.local/share/pipx/venvs -type d -name "site-packages" | tr '\n' ':')$PYTHONPATH
+# Kali-like distros (python envs)
+if [ -d ~/.local/share/pipx/venvs ]; then
+  export PYTHONPATH=$(find ~/.local/share/pipx/venvs -type d -name "site-packages" | tr '\n' ':')$PYTHONPATH
+fi
 
 # Funcion para vaciar el contenido de un fichero
 limpiar() {
@@ -40,11 +44,14 @@ extractPorts() {
 }
 
 
+# Powerline-shell prompt
 _update_ps1() {
   estado=$?
   if [ $UID -eq 0 ]; then
+    # Root prompt
     PS1=$(powerline-shell $estado)"\n\[\033[01;31m\]~\[\033[00m\]> "
   else
+    # Normal user prompt
     PS1=$(powerline-shell $estado)"\n\[\033[01;32m\]~\[\033[00m\]> "
   fi
 }
