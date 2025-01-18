@@ -11,21 +11,28 @@ alias l='ls'
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -lA'
-alias attack='~/.config/spectrwm/attack.sh'
-alias target='~/.config/spectrwm/target.sh'
 alias rm='rm -rf'
 alias suspend='sudo systemctl suspend'
 alias apagar='shutdown now'
 alias internet='timeout 1 ping -c 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
 
+if [ "$DESKTOP_SESSION" = "spectrwm" ]; then
+	alias attack='~/.config/spectrwm/attack.sh'
+	alias target='~/.config/spectrwm/target.sh'
+fi
+
 # Kali-like distros (python envs)
 if [ -d ~/.local/share/pipx/venvs ]; then
-  export PYTHONPATH=$(find ~/.local/share/pipx/venvs -type d -name "site-packages" | tr '\n' ':')$PYTHONPATH
+	export PYTHONPATH=$(find ~/.local/share/pipx/venvs -type d -name "site-packages" | tr '\n' ':')$PYTHONPATH
 fi
 
 # Funcion para vaciar el contenido de un fichero
 limpiar() {
-  echo "" > "$1"
+	if [ -n "$1" -a -f "$1" ]; then
+		echo "" > "$1"
+	else
+		echo "[!] Se debe pasar un fichero para vaciar como argumento"
+	fi
 }
 
 
