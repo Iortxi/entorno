@@ -85,4 +85,3 @@ while :; do
   sleep $sleep_sec
   (( i += $sleep_sec ))
 done
-
