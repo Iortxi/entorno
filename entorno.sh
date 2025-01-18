@@ -11,13 +11,14 @@ if [ $UID -eq 0 ]; then
   exit 1
 fi
 
-# Actualizacion de repos de paquetes
+# Actualizacion de repositorios de paquetes
 sudo apt update
 
 # Instalacion de paquetes necesarios
 sudo apt install -y spectrwm pamixer bat lsd console-data \
-xserver-xorg xinit libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi \
-feh rofi brightnessctl cbatticon volumeicon-alsa flameshot picom neofetch htop micro dolphin
+xserver-xorg xinit libpangocairo-1.0-0 python3-pip python3-xcffib \
+python3-cairocffi feh rofi brightnessctl cbatticon volumeicon-alsa \
+flameshot picom neofetch htop micro dolphin pavucontrol arandr
 
 # Teclado en espagnol
 sudo setxkbmap -layout 'es,es' -model latin1

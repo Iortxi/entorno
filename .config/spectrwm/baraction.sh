@@ -61,17 +61,17 @@ while :; do
 
   # Battery
   # if (( $i % 60 == 0 )); then
-    # bat=`upower -i /org/freedesktop/UPower/devices/battery_BAT1 |
-    # grep percentage |
-    # sed 's/ *percentage: *//g'`
-    # state=`upower -i /org/freedesktop/UPower/devices/battery_BAT1 |
-    # grep state |
-    # sed 's/ *state: *//'`
+  #   bat=`upower -i /org/freedesktop/UPower/devices/battery_BAT1 |
+  #   grep percentage |
+  #   sed 's/ *percentage: *//g'`
+  #   state=`upower -i /org/freedesktop/UPower/devices/battery_BAT1 |
+  #   grep state |
+  #   sed 's/ *state: *//'`
   # fi
   # if [ $state == "charging" -o $state == "fully-charged" ]; then
-      # echo -n "$(icon  ) "
+  #   echo -n "$(icon  ) "
   # else
-      # echo -n "$(percentage $bat            )  "
+  #   echo -n "$(percentage $bat            )  "
   # fi
   # echo -n "$bat "
 
@@ -81,6 +81,7 @@ while :; do
   fi
   echo -e "$dte"
 
+  # Time delay between refresh
   sleep $sleep_sec
   (( i += $sleep_sec ))
 done

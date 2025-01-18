@@ -17,16 +17,16 @@ alias suspend='sudo systemctl suspend'
 alias apagar='shutdown now'
 alias internet='timeout 1 ping -c 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PYTHONPATH=$(find ~/.local/share/pipx/venvs -type d -name "site-packages" | tr '\n' ':')$PYTHONPATH
 
-# Función para vaciar el contenido de un fichero
-function limpiar() {
+# Funcion para vaciar el contenido de un fichero
+limpiar() {
   echo "" > "$1"
 }
 
 
-# Función para extraer los puertos de una captura grepeable de nmap
-function extractPorts() {
+# Funcion para extraer los puertos de una captura grepeable de nmap
+extractPorts() {
   ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' \
     | xargs | tr ' ' ',')"
 	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' \
@@ -40,7 +40,7 @@ function extractPorts() {
 }
 
 
-function _update_ps1() {
+_update_ps1() {
   estado=$?
   if [ $UID -eq 0 ]; then
     PS1=$(powerline-shell $estado)"\n\[\033[01;31m\]~\[\033[00m\]> "
@@ -52,4 +52,3 @@ function _update_ps1() {
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-
