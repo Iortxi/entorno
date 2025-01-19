@@ -33,8 +33,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "Left", lazy.layout.shuffle_left()),
 
     # Toggle between different layouts as defined below
-    ([mod], "Tab", lazy.next_layout()),
-    ([mod, "shift"], "Tab", lazy.prev_layout()),
+    ([mod], "a", lazy.group.setlayout("monadtall")),
+    ([mod], "f", lazy.group.setlayout("max")),
+    ([mod], "c", lazy.group.setlayout("monadwide")),
 
     # Kill window
     ([mod], "q", lazy.window.kill()),
@@ -86,21 +87,16 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Opcion de agnadir a ~/.config/qtile/scripts o algo asi
     ([mod, "shift"], "s", lazy.spawn("~/.config/spectrwm/kill_flameshot.sh")),
 
+
     # ------------ Hardware Configs ------------
 
     # Volume
-    ([], "XF86AudioLowerVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-    )),
-    ([], "XF86AudioRaiseVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-    )),
-    ([], "XF86AudioMute", lazy.spawn(
-        "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    )),
+    ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    ([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    ([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
 
     # Brightness
     # MIRAR SI EL '-' EN EL DE BAJAR EL VOLUMEN VA DESPUES DEL '%' O ANTES
     #([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    #([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
+    #([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set -5%")),
 ]]
