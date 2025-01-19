@@ -15,6 +15,7 @@ alias rm='rm -rf'
 alias suspend='sudo systemctl suspend'
 alias apagar='shutdown now'
 alias internet='timeout 1 ping -c 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
+alias icat='kitten icat'
 
 if [ "$DESKTOP_SESSION" = "spectrwm" ]; then
 	alias attack='~/.config/spectrwm/attack.sh'

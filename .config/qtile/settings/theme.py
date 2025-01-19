@@ -7,9 +7,7 @@
 from os import path
 import subprocess
 import json
-
 from .path import qtile_path
-
 
 def load_theme():
     # dark-grey  dracula  material-darker  material-ocean  monokai-pro  nord  nord-wave  onedark rosepine
