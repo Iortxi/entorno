@@ -1,3 +1,4 @@
+
 # Antonio Sarosi
 # https://youtube.com/c/antoniosarosi
 # https://github.com/antoniosarosi/dotfiles
@@ -6,7 +7,6 @@
 
 from libqtile.config import Key
 from libqtile.lazy import lazy
-
 
 mod = "mod4"
 
@@ -24,12 +24,13 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "mod1"], "Down", lazy.layout.shrink()),
 
     # Toggle floating
-    # Buena idea, no cambiar
     ([mod, "shift"], "f", lazy.window.toggle_floating()),
 
     # Move windows up or down in current stack
     ([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     ([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+    ([mod, "shift"], "Right", lazy.layout.shuffle_right()),
+    ([mod, "shift"], "Left", lazy.layout.shuffle_left()),
 
     # Toggle between different layouts as defined below
     ([mod], "Tab", lazy.next_layout()),
@@ -45,8 +46,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Restart Qtile
     ([mod, "control"], "r", lazy.restart()),
 
+    # Quit
     ([mod, "control"], "q", lazy.shutdown()),
-    ([mod], "r", lazy.spawncmd()),
+
 
     # ------------ App Configs ------------
 
