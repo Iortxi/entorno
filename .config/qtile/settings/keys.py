@@ -19,7 +19,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "Left", lazy.layout.left()),
     ([mod], "Right", lazy.layout.right()),
 
-    # Change window sizes (MonadTall)
+    # Switch to next window
+    ([mod], "Tab", lazy.layout.next()),
+
+    # Change window sizes
     ([mod, "mod1"], "Up", lazy.layout.grow()),
     ([mod, "mod1"], "Down", lazy.layout.shrink()),
 

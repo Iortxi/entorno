@@ -16,5 +16,10 @@ picom &
 feh --bg-scale ~/wallpapers/nvidia_loko.jpg
 
 # Pantallas multiples
-xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate inverted --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate inverted
-xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate normal
+num_monitores=`xrandr | grep connected | wc -l`
+if [ $num_monitores -gt 1 ]; then
+    xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate inverted --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate inverted
+    xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate normal
+else
+    xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+fi
