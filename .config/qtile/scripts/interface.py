@@ -40,7 +40,7 @@ def mostrar_interfaces(interfaces: dict):
 
 
 def separador():
-    print(colored('-'*60 + '\n', 'black'))
+    print(colored('-'*75 + '\n', 'black'))
 
 
 if __name__ == '__main__':
