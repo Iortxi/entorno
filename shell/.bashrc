@@ -17,10 +17,18 @@ alias apagar='shutdown now'
 alias internet='timeout 1 ping -c 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
 alias icat='kitten icat'
 
+# Scripts de spectrwm
 if [ "$DESKTOP_SESSION" = "spectrwm" ]; then
 	alias attack='~/.config/spectrwm/attack.sh'
 	alias target='~/.config/spectrwm/target.sh'
 fi
+
+# Scripts de qtile
+if [ "$DESKTOP_SESSION" = "qtile" ]; then
+	alias theme='~/.config/qtile/scripts/theme.py'
+	alias interface='~/.config/qtile/scripts/interface.py'
+fi
+
 
 # Kali-like distros (python envs)
 if [ -d ~/.local/share/pipx/venvs ]; then

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import psutil
+from psutil import net_if_addrs
 from termcolor import colored
 from os import system
 
 def interfaces_disponibles():
-    interfaces = list(psutil.net_if_addrs().keys())
+    interfaces = list(net_if_addrs().keys())
 
     interfaces_d = {}
     indice = 0

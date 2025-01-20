@@ -6,7 +6,7 @@ from termcolor import colored
 
 
 def temas_disponibles():
-    ficheros = glob.glob(path.expanduser("~/.config/qtile/themes/*.json"))
+    ficheros = glob(path.expanduser("~/.config/qtile/themes/*.json"))
 
     temas = [path.basename(file)[:-5] for file in ficheros]
 

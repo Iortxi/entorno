@@ -1,12 +1,9 @@
 
-# Antonio Sarosi
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
 # Qtile keybindings
 
 from libqtile.config import Key
 from libqtile.lazy import lazy
+from os import getlogin
 
 mod = "mod4"
 
@@ -87,7 +84,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "s", lazy.spawn("flameshot gui")),
 
     # Flameshot kill
-    ([mod, "shift"], "s", lazy.spawn("~/.config/qtile/kill_flameshot.sh")),
+    ([mod, "shift"], "s", lazy.spawn(f"/home/{getlogin()}/.config/qtile/kill_flameshot.sh")),
 
 
     # ------------ Hardware Configs ------------

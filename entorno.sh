@@ -77,5 +77,5 @@ mv 'download?build=stable&os=linux-deb-x64' 'vscode.deb'
 sudo dpkg -i vscode.deb
 rm -f vscode.deb
 
-# Directorio .config (Qtile, Spectrwm, Kitty)
+# Directorio .config
 cp -r .config/* ~/.config

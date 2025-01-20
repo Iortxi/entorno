@@ -32,10 +32,8 @@ while :; do
   echo -n "$target "
 
   # CPU
-  cpu_usage=`/usr/bin/cat /proc/stat | grep 'cpu ' /proc/stat \
-    | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}' \
-    | awk '{print substr($0, 1, length($0)-3)}' | sed 's/$/%/'`
-  echo -n "$(icon  ) $cpu_usage "
+  cpu_usage=`top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}'`
+  echo -n "$(icon  ) $cpu_usage% "
   
   # RAM
   ram_usage=`free -h | grep "Mem" | awk '{print $3}' | awk '{print substr($0, 1, length($0)-1)}'`
