@@ -87,8 +87,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "s", lazy.spawn("flameshot gui")),
 
     # Flameshot kill
-    # Opcion de agnadir a ~/.config/qtile/scripts o algo asi
-    ([mod, "shift"], "s", lazy.spawn("~/.config/spectrwm/kill_flameshot.sh")),
+    ([mod, "shift"], "s", lazy.spawn("~/.config/qtile/kill_flameshot.sh")),
 
 
     # ------------ Hardware Configs ------------
