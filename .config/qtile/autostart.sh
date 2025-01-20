@@ -15,6 +15,9 @@ picom &
 # Fondo de pantalla
 feh --bg-scale ~/wallpapers/nvidia_loko.jpg
 
+# Subir volumen al maximo
+pactl set-sink-volume @DEFAULT_SINK@ +100%
+
 # Pantallas multiples
 num_monitores=`xrandr | grep connected | wc -l`
 if [ $num_monitores -gt 1 ]; then
