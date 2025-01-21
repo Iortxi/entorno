@@ -130,6 +130,14 @@ primary_widgets = [
 secondary_widgets = [
     *workspaces(),
     separator(),
+
+    powerline('color1', 'dark'),
+
+    # Date
+    icon(bg="color1", fontsize=16, text=' '),
+    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
+
+    powerline('dark', 'color1'),
 ]
 
 

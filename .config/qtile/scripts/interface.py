@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-from psutil import net_if_addrs
 from termcolor import colored
 from os import system
+from subprocess import run, PIPE
 
 def interfaces_disponibles():
-    interfaces = list(net_if_addrs().keys())
+    interfaces_c = run("ifconfig | grep flags= | awk '{print $1}' | tr -d ':' | xargs", shell=True, stdout=PIPE, stderr=PIPE)
+    interfaces = interfaces_c.stdout.decode('utf-8').split()
 
     interfaces_d = {}
     indice = 0
@@ -44,7 +45,7 @@ def separador():
 
 
 if __name__ == '__main__':
-    # Nombres de las interfaces de red disponibles
+    # Nombre de las interfaces de red disponibles
     interfaces = interfaces_disponibles()
 
     print()

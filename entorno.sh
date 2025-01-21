@@ -25,8 +25,7 @@ vlc
 sudo setxkbmap -layout 'es,es' -model latin1
 
 # Dependencias de python -> README
-#pip install termcolor --break-system-packages
-#pip install psutil --break-system-packages
+pip install termcolor --break-system-packages
 
 # Neovim 0.10
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage -O nvim

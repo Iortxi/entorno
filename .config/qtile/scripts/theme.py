@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-from glob import glob
-from os import path, system
+from os import system
 from termcolor import colored
+from subprocess import run, PIPE
 
 
 def temas_disponibles():
-    ficheros = glob(path.expanduser("~/.config/qtile/themes/*.json"))
-
-    temas = [path.basename(file)[:-5] for file in ficheros]
+    temas_c = run("/bin/ls ~/.config/qtile/themes/*.json | awk -F '/' '{print $NF}' | xargs", shell=True, stdout=PIPE, stderr=PIPE)
+    temas = temas_c.stdout.decode('utf-8').split()
 
     temas_d = {}
     indice = 0
@@ -47,7 +46,7 @@ def separador():
 
 
 if __name__ == '__main__':
-    # Nombres de los temas disponibles
+    # Nombre de los temas disponibles
     temas = temas_disponibles()
 
     print()
