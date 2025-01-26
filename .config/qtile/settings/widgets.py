@@ -85,7 +85,7 @@ primary_widgets = [
 
     # Interface net traffic
     icon(bg="color4", text=' '),
-    widget.Net(**base(bg='color4'), interface='eth0'),
+    widget.Net(**base(bg='color4'), interface='eth0', update_interval=2.5),
 
     powerline('color3', 'color4'),
 
@@ -94,7 +94,7 @@ primary_widgets = [
     widget.CPU(
         **base(bg='color3'),
         format='{load_percent}%',
-        update_interval=3,
+        update_interval=2.5,
     ),
 
     powerline('color2', 'color3'),
@@ -105,13 +105,13 @@ primary_widgets = [
     #     **base(bg='color2'),
     #     format='{MemUsed:.0f}{mm}',
     #     # measure_mem='G',
-    #     update_interval=3,
+    #     update_interval=2.5,
     # ),
     GenPollText(
         func=lambda: subprocess.check_output("free -h | grep 'Mem' | awk '{print $3}'", shell=True, text=True).strip(),
         foreground=colors["text"],
         background=colors["color2"],
-        update_interval=3,
+        update_interval=2.5,
     ),
 
     powerline('color1', 'color2'),

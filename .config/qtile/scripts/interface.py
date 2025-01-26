@@ -3,6 +3,8 @@
 from termcolor import colored
 from os import system
 from subprocess import run, PIPE
+from sys import exit
+from signal import SIGINT, signal
 
 def interfaces_disponibles():
     interfaces_c = run("ifconfig | grep flags= | awk '{print $1}' | tr -d ':' | xargs", shell=True, stdout=PIPE, stderr=PIPE)
@@ -43,6 +45,12 @@ def mostrar_interfaces(interfaces: dict):
 def separador():
     print(colored('-'*75 + '\n', 'black'))
 
+
+def ctrl_c(sig, frame):
+    print()
+    exit(1)
+
+signal(SIGINT, ctrl_c)
 
 if __name__ == '__main__':
     # Nombre de las interfaces de red disponibles

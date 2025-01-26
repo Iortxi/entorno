@@ -3,11 +3,18 @@
 from os import system
 from termcolor import colored
 from subprocess import run, PIPE
+from sys import exit
+from signal import SIGINT, signal
 
 
 def temas_disponibles():
     temas_c = run("/bin/ls ~/.config/qtile/themes/*.json | awk -F '/' '{print $NF}' | xargs", shell=True, stdout=PIPE, stderr=PIPE)
     temas = temas_c.stdout.decode('utf-8').split()
+
+    # Eliminar extension .json
+    for i in range(len(temas)):
+        tema = temas[i]
+        temas[i] = tema[:-5]
 
     temas_d = {}
     indice = 0
@@ -43,6 +50,13 @@ def mostrar_temas(temas: dict):
 
 def separador():
     print(colored('-'*60 + '\n', 'black'))
+
+
+def ctrl_c(sig, frame):
+    print()
+    exit(1)
+
+signal(SIGINT, ctrl_c)
 
 
 if __name__ == '__main__':
