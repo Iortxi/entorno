@@ -6,6 +6,7 @@ from subprocess import run, PIPE
 from sys import exit
 from signal import SIGINT, signal
 
+
 def interfaces_disponibles():
     interfaces_c = run("ifconfig | grep flags= | awk '{print $1}' | tr -d ':' | xargs", shell=True, stdout=PIPE, stderr=PIPE)
     interfaces = interfaces_c.stdout.decode('utf-8').split()
@@ -51,6 +52,7 @@ def ctrl_c(sig, frame):
     exit(1)
 
 signal(SIGINT, ctrl_c)
+
 
 if __name__ == '__main__':
     # Nombre de las interfaces de red disponibles

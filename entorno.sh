@@ -51,6 +51,7 @@ sudo ln -s /home/"$USER"/.local/bin/powerline-shell /usr/bin/powerline-shell
 
 # Spectrwm
 sudo cp configs/spectrwm.conf /etc/
+sudo cp configs/spectrwm.desktop /usr/share/xsessions
 
 # Qtile
 pip install qtile --break-system-packages

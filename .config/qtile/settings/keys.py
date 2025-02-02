@@ -84,7 +84,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "s", lazy.spawn("flameshot gui")),
 
     # Flameshot kill
-    ([mod, "shift"], "s", lazy.spawn(f"/home/{getlogin()}/.config/qtile/kill_flameshot.sh")),
+    ([mod, "shift"], "s", lazy.spawn(f"/home/{getlogin()}/.config/qtile/scripts/kill_flameshot.sh")),
 
 
     # ------------ Hardware Configs ------------
@@ -95,7 +95,6 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
 
     # Brightness
-    # MIRAR SI EL '-' EN EL DE BAJAR EL VOLUMEN VA DESPUES DEL '%' O ANTES
     #([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
     #([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set -5%")),
 ]]
