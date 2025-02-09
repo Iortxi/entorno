@@ -129,9 +129,56 @@ primary_widgets = [
 
 secondary_widgets = [
     *workspaces(),
+
     separator(),
 
-    powerline('color1', 'dark'),
+    powerline('color5', 'dark'),
+
+    # Check updates
+    icon(bg="color5", text=' '),
+    widget.CheckUpdates(
+        **base(bg='color5'),
+        colour_have_updates=colors['text'],
+        colour_no_updates=colors['text'],
+        no_update_string='0',
+        display_format='{updates}',
+        update_interval=900,
+    ),
+
+    powerline('color4', 'color5'),
+
+    # Interface net traffic
+    icon(bg="color4", text=' '),
+    widget.Net(**base(bg='color4'), interface='eth0', update_interval=2.5),
+
+    powerline('color3', 'color4'),
+
+    # CPU
+    icon(bg="color3", text=' '),
+    widget.CPU(
+        **base(bg='color3'),
+        format='{load_percent}%',
+        update_interval=2.5,
+    ),
+
+    powerline('color2', 'color3'),
+
+    # RAM
+    icon(bg="color2", text=" "),
+    # widget.Memory(
+    #     **base(bg='color2'),
+    #     format='{MemUsed:.0f}{mm}',
+    #     # measure_mem='G',
+    #     update_interval=2.5,
+    # ),
+    GenPollText(
+        func=lambda: subprocess.check_output("free -h | grep 'Mem' | awk '{print $3}'", shell=True, text=True).strip(),
+        foreground=colors["text"],
+        background=colors["color2"],
+        update_interval=2.5,
+    ),
+
+    powerline('color1', 'color2'),
 
     # Date
     icon(bg="color1", fontsize=16, text=' '),
