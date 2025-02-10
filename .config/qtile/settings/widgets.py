@@ -79,6 +79,7 @@ primary_widgets = [
         no_update_string='0',
         display_format='{updates}',
         update_interval=900,
+        distro='Debian'
     ),
 
     powerline('color4', 'color5'),
@@ -143,6 +144,7 @@ secondary_widgets = [
         no_update_string='0',
         display_format='{updates}',
         update_interval=900,
+        distro='Debian'
     ),
 
     powerline('color4', 'color5'),
