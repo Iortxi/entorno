@@ -27,7 +27,7 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
-        text="", # Icon: nf-oct-triangle_left
+        text="",
         fontsize=37,
         padding=-2
     )
@@ -78,7 +78,7 @@ primary_widgets = [
         colour_no_updates=colors['text'],
         no_update_string='0',
         display_format='{updates}',
-        update_interval=900,
+        update_interval=180,
         distro='Debian'
     ),
 
@@ -86,7 +86,7 @@ primary_widgets = [
 
     # Interface net traffic
     icon(bg="color4", text=' '),
-    widget.Net(**base(bg='color4'), interface='eth0', update_interval=2.5),
+    widget.Net(**base(bg='color4'), interface='eth0', update_interval=2),
 
     powerline('color3', 'color4'),
 
@@ -95,7 +95,7 @@ primary_widgets = [
     widget.CPU(
         **base(bg='color3'),
         format='{load_percent}%',
-        update_interval=2.5,
+        update_interval=2,
     ),
 
     powerline('color2', 'color3'),
@@ -105,14 +105,14 @@ primary_widgets = [
     # widget.Memory(
     #     **base(bg='color2'),
     #     format='{MemUsed:.0f}{mm}',
-    #     # measure_mem='G',
+    #     measure_mem='G',
     #     update_interval=2.5,
     # ),
     GenPollText(
         func=lambda: subprocess.check_output("free -h | grep 'Mem' | awk '{print $3}'", shell=True, text=True).strip(),
         foreground=colors["text"],
         background=colors["color2"],
-        update_interval=2.5,
+        update_interval=2,
     ),
 
     powerline('color1', 'color2'),
@@ -129,7 +129,7 @@ primary_widgets = [
 
 
 secondary_widgets = [
-    *workspaces(),
+*workspaces(),
 
     separator(),
 
@@ -143,7 +143,7 @@ secondary_widgets = [
         colour_no_updates=colors['text'],
         no_update_string='0',
         display_format='{updates}',
-        update_interval=900,
+        update_interval=180,
         distro='Debian'
     ),
 
@@ -151,7 +151,7 @@ secondary_widgets = [
 
     # Interface net traffic
     icon(bg="color4", text=' '),
-    widget.Net(**base(bg='color4'), interface='eth0', update_interval=2.5),
+    widget.Net(**base(bg='color4'), interface='eth0', update_interval=2),
 
     powerline('color3', 'color4'),
 
@@ -160,7 +160,7 @@ secondary_widgets = [
     widget.CPU(
         **base(bg='color3'),
         format='{load_percent}%',
-        update_interval=2.5,
+        update_interval=2,
     ),
 
     powerline('color2', 'color3'),
@@ -170,14 +170,14 @@ secondary_widgets = [
     # widget.Memory(
     #     **base(bg='color2'),
     #     format='{MemUsed:.0f}{mm}',
-    #     # measure_mem='G',
+    #     measure_mem='G',
     #     update_interval=2.5,
     # ),
     GenPollText(
         func=lambda: subprocess.check_output("free -h | grep 'Mem' | awk '{print $3}'", shell=True, text=True).strip(),
         foreground=colors["text"],
         background=colors["color2"],
-        update_interval=2.5,
+        update_interval=2,
     ),
 
     powerline('color1', 'color2'),
