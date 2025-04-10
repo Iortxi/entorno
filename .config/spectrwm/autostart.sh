@@ -13,7 +13,7 @@ feh --bg-scale ~/wallpapers/nvidia_loko.jpg
 setxkbmap 'es,es' -model latin1
 
 # Subir volumen al maximo
-pactl set-sink-volume @DEFAULT_SINK@ +100%
+pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 # Pantallas multiples
 num_monitores=`xrandr | grep connected | wc -l`

@@ -16,7 +16,7 @@ sudo apt update
 
 # Instalacion de paquetes
 sudo apt install -y spectrwm pamixer bat lsd console-data \
-feh rofi brightnessctl cbatticon volumeicon-alsa \
+feh rofi brightnessctl cbatticon pasystray \
 flameshot picom htop micro thunar pavucontrol arandr \
 kcalc vlc apt-show-versions pulseaudio-utils
 

@@ -4,7 +4,7 @@
 #cbatticon -u 5 &
 
 # Volumen del systray
-volumeicon &
+pasystray &
 
 # Teclado en espagnol
 setxkbmap -layout es,es -model latin1
@@ -16,7 +16,7 @@ picom &
 feh --bg-scale ~/wallpapers/nvidia_loko.jpg
 
 # Subir volumen al maximo
-pactl set-sink-volume @DEFAULT_SINK@ +100%
+pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 # Pantallas multiples
 num_monitores=`xrandr | grep connected | wc -l`
