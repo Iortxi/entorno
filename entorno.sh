@@ -11,6 +11,11 @@ if [ $UID -eq 0 ]; then
   exit 1
 fi
 
+# Icono de bateria del systray para portatiles (-l -> labtop)
+if [ -n "$1" -a "$1" == "-l" ]; then
+  sed -i 's/#cbatticon -u 5 &/cbatticon -u 5 &/g' .config/qtile/autostart.sh
+fi
+
 # Actualizacion de repositorios de paquetes
 sudo apt update
 

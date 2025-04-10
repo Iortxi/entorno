@@ -6,7 +6,7 @@
 # Volumen del systray
 pasystray &
 
-# Teclado en espagnol
+# Teclado en español
 setxkbmap -layout es,es -model latin1
 
 # Compositor de imagenes

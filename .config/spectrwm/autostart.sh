@@ -9,7 +9,7 @@ echo -n "No target" > ~/.config/spectrwm/objetivoBD
 # Fondo de pantalla
 feh --bg-scale ~/wallpapers/nvidia_loko.jpg
 
-# Teclado en espagnol
+# Teclado en español
 setxkbmap 'es,es' -model latin1
 
 # Subir volumen al maximo
