@@ -53,10 +53,12 @@ sudo cp configs/spectrwm.conf /etc/
 sudo cp configs/spectrwm.desktop /usr/share/xsessions
 
 # Qtile
+sed -i 's/iortxi/$USER/g' .config/qtile/scripts/qtile.sh
 pip install qtile --break-system-packages
 sudo pip install qtile --break-system-packages
+sed -i 's/qtile start/\/home\/$USER\/.config\/qtile\/scripts\/qtile.sh/g' configs/qtile.desktop
 sudo cp configs/qtile.desktop /usr/share/xsessions
-sudo ln -s /home/"$USER"/.local/bin/qtile /usr/bin/qtile
+sudo ln -s /home/$USER/.local/bin/qtile /usr/bin/qtile
 
 # Fuentes - UbuntuMono Nerd Font ; Hack Nerd Font
 mkdir -p ~/.local/share/fonts
@@ -64,8 +66,8 @@ cp fuente/* ~/.local/share/fonts
 
 # Kitty Terminal
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-sudo ln -s /home/"$USER"/.local/kitty.app/bin/kitty /usr/bin/kitty
-sudo ln -s /home/"$USER"/.local/kitty.app/bin/kitten /usr/bin/kitten
+sudo ln -s /home/$USER/.local/kitty.app/bin/kitty /usr/bin/kitty
+sudo ln -s /home/$USER/.local/kitty.app/bin/kitten /usr/bin/kitten
 
 # Wallpapers
 cp -r wallpapers ~
@@ -83,3 +85,10 @@ rm -f vscode.deb
 
 # Directorio .config
 cp -r .config/* ~/.config
+
+# Sudo sin password
+sudo echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Grub sin timeout
+sudo sed -i 's/GRUB_TIMEOUT.*/GRUB_TIMEOUT=-1/g' /etc/default/grub
+sudo update-grub
