@@ -2,6 +2,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export PATH=$PATH:/home/$USER/dnsfirst
+
 alias ls='lsd'
 alias cat='batcat'
 alias vi='micro'
@@ -38,25 +40,54 @@ fi
 # Funcion para vaciar el contenido de un fichero
 limpiar() {
 	if [ -n "$1" -a -f "$1" ]; then
-		echo "" > "$1"
+		> "$1"
 	else
-		echo "[!] Se debe pasar un fichero para vaciar como argumento"
+		echo -e "\n[!] Se debe pasar un fichero como argumento\n"
+	fi
+}
+
+
+# Funcion para ver la informacion detallada de los puertos abiertos de una IP
+info_ip() {
+	if [ -n "$1" -a -f "$1" -a -n "$2" ]; then
+		awk -v ip="$2$" 'BEGIN {capture=0} /Nmap scan report for/ {if ($0 ~ ip) capture=1; else capture=0} capture' "$1" | /usr/bin/batcat -l java
+	else
+		echo -e "\n[!] Se debe pasar un fichero y una IP como argumentos\n"
+	fi
+}
+
+
+# Funcion para unir todos los ficheros de escaneo de puertos en uno solo
+unir_scan() {
+	if [ -n "$1" -a -d "$1" -a -n "$2" -a ! -d "$2" ]; then
+		find "$1" -name "*.nmap" | xargs /usr/bin/cat | grep -vE "^#.*$|^WARNING|Host is up|Service detection performed" | sponge "$2"
+	else
+		echo -e "\n[!] Se debe pasar un directorio y un fichero como argumentos\n"
+	fi
+}
+
+
+# Funcion para crear directorios para una victima
+directorios() {
+	if [ -n "$1" -a ! -f "$1" -a ! -d "$1" ]; then
+		/usr/bin/mkdir -p "$1" "$1"/scan
+	else
+		echo -e "\n[!] Se debe pasar un nombre que no exista como argumento\n"
 	fi
 }
 
 
 # Funcion para extraer los puertos de una captura grepeable de nmap
 extractPorts() {
-  ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' \
-    | xargs | tr ' ' ',')"
-	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' \
-    | sort -u | head -n 1)"
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
 	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
 	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
 	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
 	echo $ports | tr -d '\n' | xclip -sel clip
 	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
-	cat extractPorts.tmp; rm extractPorts.tmp
+	cat extractPorts.tmp
+	rm extractPorts.tmp
 }
 
 
