@@ -87,7 +87,7 @@ rm -f vscode.deb
 cp -r .config/* ~/.config
 
 # Sudo sin password
-sudo echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 # Grub sin timeout
 sudo sed -i 's/GRUB_TIMEOUT.*/GRUB_TIMEOUT=-1/g' /etc/default/grub
