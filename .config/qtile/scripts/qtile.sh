@@ -1,2 +1,2 @@
 #!/bin/bash
-/home/iortxi/.local/bin/qtile start
+/home/$USER/.local/bin/qtile start
