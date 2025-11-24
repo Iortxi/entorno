@@ -5,8 +5,8 @@
 *Based on [Antonio Sarosi dotfiles](https://github.com/antoniosarosi/dotfiles)*
 
 **Language**
-- [Español](./README.es.md)
-- English
+- [Español 🇪🇸](./README.es.md)
+- English 🇬🇧
 
 # Overview
 Full-automatized desktop enviroment configuration with multiple windows managers.
@@ -23,6 +23,7 @@ Tested on:
 - [Windows managers](#windows-managers)
     - [Qtile](#qtile)
     - [Spectrwm](#spectrwm)
+- [Terminal](#terminal)
 - [Monitors](#monitors)
 
 
@@ -48,16 +49,16 @@ All windows managers have the same apps keybindings.
 
 | Key               | Action                        |
 |-------------------|-------------------------------|
-| mod + m           | Rofi                          |
-| mod + shift + m   | Rofi with open windows        |
-| mod + return      | Terminal (Kitty)              |
-| mod + space       | Google Chrome                 |
-| mod + e           | File explorer (Thunar)        |
-| mod + o           | Obsidian                      |
-| mod + b           | Burpsuite                     |
-| mod + v           | Volume control (Pavucontrol)  |
-| mod + k           | Calculator (Kcalc)            |
-| mod + s           | Screenshots (Flameshot)       |
+| Mod + m           | Rofi                          |
+| Mod + Shift + m   | Rofi with active windows      |
+| Mod + Return      | Terminal (Kitty)              |
+| Mod + Space       | Google Chrome                 |
+| Mod + e           | File explorer (Thunar)        |
+| Mod + o           | Obsidian                      |
+| Mod + b           | Burpsuite                     |
+| Mod + v           | Volume control (Pavucontrol)  |
+| Mod + k           | Calculator (Kcalc)            |
+| Mod + s           | Screenshots (Flameshot)       |
 
 
 # Windows managers
@@ -68,28 +69,28 @@ There's the windows managers configured in this dotfiles:
 
 
 # Qtile
-Python-made window manager (prettier than Spectrwm :D).
+Python-made window manager (prettier than Spectrwm :D). There's 3 layouts configured. To add more, check the [Qtile layouts docu](https://docs.qtile.org/en/latest/manual/ref/layouts.html).
 
-*foto*
+*una foto de la barra con el fondo de pantalla y 3 mas (una con cada layout)*
 
 
 ## Keybindings
 | Key               | Action                    |
 |-------------------|---------------------------|
-| mod + Up          | Focus up windows          |
-| mod + Down        | Focus down windows        |
-| mod + Right       | Focus right windows       |
-| mod + Left        | Focus left windows        |
-| mod + q           | Kill window               |
-| mod + alt + Up    | Grow window               |
-| mod + alt + Down  | Shrink window             |
-| mod + a           | Monadtall layout          |
-| mod + f           | Max layout                |
-| mod + c           | Monadwide layout          |
-| mod + Tab         | Next window (max layout)  |
-| mod + comma       | Switch focus of monitor   |
-| mod + Ctrl + r    | Restart Qtile             |
-| mod + Ctrl + q    | Quit Qtile (to login)     |
+| Mod + Up          | Focus up windows          |
+| Mod + Down        | Focus down windows        |
+| Mod + Right       | Focus right windows       |
+| Mod + Left        | Focus left windows        |
+| Mod + q           | Kill window               |
+| Mod + alt + Up    | Grow window               |
+| Mod + alt + Down  | Shrink window             |
+| Mod + a           | Monadtall layout          |
+| Mod + f           | Max layout                |
+| Mod + c           | Monadwide layout          |
+| Mod + Tab         | Next window (max layout)  |
+| Mod + Comma       | Switch focus of monitor   |
+| Mod + Ctrl + r    | Restart Qtile             |
+| Mod + Ctrl + q    | Quit Qtile (to login)     |
 
 
 ## Scripts
@@ -116,9 +117,40 @@ Sets the IP of your victim at the bar
 
 
 # Terminal
-This desktop enviroment uses kitty as terminal. Not as fast as Alacritty but so useful to manage multiple shells in just one window.
+This desktop enviroment uses kitty as terminal in all of the windows managers. Not as fast as Alacritty but so useful to manage multiple shells in just one window.
 
 **PERFECT** for avoid Tmux.
+
+Sometimes when you paste text in it, a message with 2 paste options appears (`Sanitize and paste` and `Paste anyway`). Just choose the `Paste anyway` option pressing `p` to paste it the best way (experience).
+
+## Keybindings
+| Key                       | Action                                            |
+|---------------------------|---------------------------------------------------|
+| Mod + Return              | Launch kitty                                      |
+| Ctrl + Shift + Return     | Launch shell in the same window (Divided screen)  |
+| Ctrl + Alt + Up           | Focus to up terminal                              |
+| Ctrl + Alt + Down         | Focus to down terminal                            |
+| Ctrl + Alt + Right        | Focus to Right terminal                           |
+| Ctrl + Alt + Left         | Focus to Left                                     |
+| Ctrl + Shift + t          | Launch shell in a new tab                         |
+| Ctrl + Shift + Tab        | Switch between tabs                               |
+| Ctrl + Shift + q          | Kill current tab                                  |
+| Ctrl + Shift + Alt + t    | Rename the current tab                            |
+| Ctrl + Shift + '+'        | Zoom in                                           |
+| Ctrl + Shift + '-'        | Zoom out                                          |
+| Ctrl + Supr               | Delete the next word (Ctrl + Delete is bugged)    |
+| Ctrl + Right              | Go to next word                                   |
+| Ctrl + Left               | Go to last word                                   |
+| F1                        | Copy to buffer 1                                  |
+| F2                        | Paste from buffer 1                               |
+| F3                        | Copy to buffer 2                                  |
+| F4                        | Paste from buffer 2                               |
+
+
+## Config files
+`~/.config/kitty/color.ini` to config the colors.
+`~/.config/kitty/kitty` to config the keybindings, font, shell.
+
 
 # Monitors
 This uses arandr to manage multiple monitors. It's so simple and easy. To automatize the process:
