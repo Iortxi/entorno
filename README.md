@@ -1,5 +1,7 @@
 # Dotfiles
 
+# NOT FINISHED
+
 *Based on [Antonio Sarosi dotfiles](https://github.com/antoniosarosi/dotfiles)*
 
 **Language**
@@ -9,8 +11,20 @@
 # Overview
 Full-automatized desktop enviroment configuration with multiple windows managers.
 
-Tested on (it should work on any debian/ubuntu distro with apt):
+**Prefered to execute this in a fresh-new SO installation**. It should work on any debian/ubuntu distro with apt.
+
+Tested on:
 - Kali Linux
+
+
+# Index
+- [Installation](#installation)
+- [Apps](#apps)
+- [Windows managers](#windows-managers)
+    - [Qtile](#qtile)
+    - [Spectrwm](#spectrwm)
+- [Monitors](#monitors)
+
 
 # Installation
 ```bash
@@ -20,16 +34,15 @@ git clone https://github.com/Iortxi/dotfiles.git
 # Move to dir
 cd dotfiles
 
-# It's configured to use the spanish keyboard with setxkbmap, change if you need (default US keyboard)
+# It uses the spanish keyboard with setxkbmap, change if you need (US default if you remove it)
 nano .config/qtile/autostart.sh
 nano .config/spectrwm/autostart.sh
 
 # DO NOT execute with sudo, it needs your user. It'll throw error if you do anyways :D
-# The -l flag is for labtops, it'll also configure battery and brightness in case you need it
+# The -l flag is for labtops, in case you need to configure battery and brightnesss
 ./entorno.sh [-l]
 ```
 
----
 ## Apps
 All windows managers have the same apps keybindings.
 
@@ -46,12 +59,11 @@ All windows managers have the same apps keybindings.
 | mod + k           | Calculator (Kcalc)            |
 | mod + s           | Screenshots (Flameshot)       |
 
----
 
 # Windows managers
 There's the windows managers configured in this dotfiles:
-- Qtile (recommended)
-- Spectrwm
+- [Qtile (recommended)](#qtile)
+- [Spectrwm](#spectrwm)
 
 
 
@@ -88,10 +100,11 @@ Switch de colors of the bar
 ### Interface
 Switch the network interface to check in the bar
 
----
 
 # Spectrwm
 C-made window manager (the **not** recommended one D:). Less stable than Qtile, it gives more problems
+
+*foto*
 
 ## Scripts
 There's also some bash scripts made **specifically** for Spectrwm with alias in [.bashrc](./shell/.bashrc). They use files in `~/.config/spectrwm/` to store some info (the info printed at the bar).
@@ -101,10 +114,15 @@ Sets your attacker IP at the bar
 ### Target
 Sets the IP of your victim at the bar
 
----
 
-## Monitors
-arandr
+# Terminal
+This desktop enviroment uses kitty as terminal. Not as fast as Alacritty but so useful to manage multiple shells in just one window.
 
-## Volume
-pavucontrol
+**PERFECT** for avoid Tmux.
+
+# Monitors
+This uses arandr to manage multiple monitors. It's so simple and easy. To automatize the process:
+1. Launch arand (Rofi or terminal)
+2. Place the screens in the position you want
+3. Design -> Save as (this will generate a bash one-liner)
+4. Put this one-liner in the autostart.sh files to automatically execute it when you login
