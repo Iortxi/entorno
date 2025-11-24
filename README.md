@@ -5,7 +5,7 @@
 *Based on [Antonio Sarosi dotfiles](https://github.com/antoniosarosi/dotfiles)*
 
 **Language**
-- [Español 🇪🇸](./README.es.md)
+- [Español 🇪🇸](./README_es.md)
 - English 🇬🇧
 
 # Overview
@@ -35,7 +35,7 @@ git clone https://github.com/Iortxi/dotfiles.git
 # Move to dir
 cd dotfiles
 
-# It uses the spanish keyboard with setxkbmap, change if you need (US default if you remove it)
+# The spanish keyboard is set, change if you need (US default if you remove it)
 nano .config/qtile/autostart.sh
 nano .config/spectrwm/autostart.sh
 
@@ -149,11 +149,14 @@ Sometimes when you paste text in it, a message with 2 paste options appears (`Sa
 
 ## Config files
 `~/.config/kitty/color.ini` to config the colors.
+
 `~/.config/kitty/kitty` to config the keybindings, font, shell.
 
 
 # Monitors
-This uses arandr to manage multiple monitors. It's so simple and easy. To automatize the process:
+This uses `arandr` to manage multiple monitors. It's so simple and easy.
+
+To automatize the process of configuration:
 1. Launch arand (Rofi or terminal)
 2. Place the screens in the position you want
 3. Design -> Save as (this will generate a bash one-liner)
