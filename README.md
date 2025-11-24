@@ -1,5 +1,32 @@
-# Entorno
+# Dotfiles
 
-## Cosas que faltan (en orden de prioridad)
-1. Documentar esta mierda
-2. Checkear si hace falta lo de las 2 pantallas en autostart.sh con Xfce (qtile y spectrwm)
+*Based on [Antonio Sarosi dotfiles](https://github.com/antoniosarosi/dotfiles)*
+
+**Language**
+- [Español](./README.es.md)
+- English
+
+---
+## Apps
+|   Key             |    Action                 |
+|-------------------|---------------------------|
+| mod + m           | Rofi                      |
+| mod + shift + m   | Rofi with open windows    |
+| mod + return      | Terminal (Kitty)          |
+| mod + space       | Google Chrome             |
+| mod + e           | File explorer (Thunar)    |
+| mod + o           | Obsidian                  |
+| mod + b           | Burpsuite                 |
+| mod + v           | Pavucontrol (volume)      |
+| mod + k           | Kcalc (calculator)        |
+| mod + s           | Flameshot (screenshots)   |
+
+
+## Monitors
+arandr
+
+## Volume
+pavucontrol
+
+# Qtile
+## Keybindings

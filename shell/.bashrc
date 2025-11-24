@@ -2,8 +2,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export PATH=$PATH:/home/$USER/dnsfirst
-
 alias ls='lsd'
 alias cat='batcat'
 alias vi='micro'
@@ -16,7 +14,7 @@ alias lla='ls -lA'
 alias rm='rm -rf'
 alias suspend='sudo systemctl suspend'
 alias apagar='shutdown now'
-alias internet='timeout 1 ping -c 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
+alias internet='ping -c 1 -W 1 8.8.8.8 &>/dev/null && echo "Hay internet :D" || echo "No hay internet D:"'
 alias icat='kitten icat'
 
 # Scripts de spectrwm
